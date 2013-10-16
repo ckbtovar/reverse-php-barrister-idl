@@ -1,5 +1,6 @@
 {
     "require": {
-        "phpdocumentor/reflection-docblock": "2.0.*@dev"
+        "phpdocumentor/reflection-docblock": "2.0.*@dev",
+        "symfony/console": "2.3.*"
     }
 }
