@@ -45,6 +45,10 @@ class IdlParser {
         }
     }
 
+    public function getSaveCount() {
+        return $this->saveCount;
+    }
+
     private function processEnum($entity) {
         $codeStr = $this->formatNamespace();
         $codeStr .= $this->formatComment($entity->comment);

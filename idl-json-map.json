@@ -1,0 +1,26 @@
+{
+    "description": "IdlJsonMap",
+    "type": "array",
+    "items": {
+        "title": "An Idl-to-Json mapping object",
+        "type": "object",
+        "properties": {
+            "json": {
+                "title": "Input IDL-JSON file",
+                "type": "string",
+                "required": true
+            },
+            "output": {
+                "title": "Output directory for PHP classes",
+                "type": "string",
+                "required": true
+            },
+            "package": {
+                "title": "Namespace to use for PHP classes",
+                "type": "string",
+                "required": false
+            }
+        }
+    },
+    "minItems": 1
+}

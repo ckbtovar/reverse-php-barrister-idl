@@ -46,5 +46,6 @@ class Make extends Command {
         $parser = new \IdlParser($jsonData, $package, $outputDir, $version);
         $output->writeln(sprintf('Generating code for <info>%s</info> to <info>%s</info>', $json, $outputDir));
         $parser->parse();
+        $output->writeln(sprintf('<info>Finished!</info> Generated %s classes.', $parser->getSaveCount()));
     }
 }
