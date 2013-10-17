@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
+(@include_once __DIR__ . '/vendor/autoload.php') || @include_once __DIR__ . '/../../autoload.php';
 require __DIR__ . '/command/Batch.php';
 require __DIR__ . '/command/Make.php';
 require 'IdlParser.php';
