@@ -27,7 +27,7 @@ class Batch extends Command {
         $classmapFile = file_get_contents($classmap);
         $batchJob = json_decode($classmapFile);
 
-        $validator = new \Json\Validator('idl-json-map.json');
+        $validator = new \Json\Validator(__DIR__ . '/../idl-json-map.json');
         $validator->validate($batchJob);
 
         foreach($batchJob as $job) {
