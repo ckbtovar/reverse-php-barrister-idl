@@ -4,6 +4,6 @@
     "require": {
         "phpdocumentor/reflection-docblock": "2.0.*@dev",
         "symfony/console": "2.3.*",
-        "hasbridge/json-schema-validator": "dev-master"
+        "hasbridge/json-schema-validator": "0.1.0"
     }
 }
