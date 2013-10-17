@@ -1,5 +1,5 @@
 {
-    "name": "barrister php autogenerator",
+    "name": "ckbtovar/barrister-json-to-idl",
     "version": "0.1",
     "require": {
         "phpdocumentor/reflection-docblock": "2.0.*@dev",
