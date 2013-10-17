@@ -39,9 +39,6 @@ class Make extends Command {
         if (isset($composerJson->version)) {
             $version = $composerJson->version;
         }
-        if (!$version) {
-            throw new \Exception('Version missing from composer.json!');
-        }
 
         $parser = new \IdlParser($jsonData, $package, $outputDir, $version);
         $output->writeln(sprintf('Generating code for <info>%s</info> to <info>%s</info>', $json, $outputDir));

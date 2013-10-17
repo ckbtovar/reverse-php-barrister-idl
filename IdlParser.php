@@ -19,7 +19,7 @@ class IdlParser {
     }
 
     public function getVersion() {
-        return $this->version;
+        return $this->version ? $this->version : 'unknown version';
     }
 
     public function parse() {
