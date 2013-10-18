@@ -4,18 +4,19 @@ class IdlParser {
 
     const INDENT = '    ';
     const PHP_OPEN_TAG = "<?php";
-    const ENUM_CLASS = "CkEnum";
 
     private $json;
     private $package;
     private $outputDir;
+    private $enumBase;
     private $version;
     private $saveCount;
 
-    public function __construct($json, $package, $outputDir, $version) {
+    public function __construct($json, $package, $outputDir, $enumBase, $version) {
         $this->json = $json;
         $this->package = $package;
         $this->outputDir = $outputDir;
+        $this->enumBase = $enumBase;
         $this->version = $version;
     }
 
@@ -53,7 +54,11 @@ class IdlParser {
     private function processEnum($entity) {
         $codeStr = $this->formatNamespace();
         $codeStr .= $this->formatComment($entity->comment);
-        $codeStr .= "class " . $entity->name . " extends " . self::ENUM_CLASS . "{\n";
+        $codeStr .= "class " . $entity->name;
+        if ($this->enumBase) {
+            $codeStr .= " extends " . $this->enumBase;
+        }
+        $codeStr .= " {\n";
         foreach ($entity->values as $evp) {
             $comment = trim($evp->comment);
             if (!empty($comment)) {

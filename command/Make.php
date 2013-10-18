@@ -16,7 +16,8 @@ class Make extends Command {
             ->setDefinition(array(
                 new InputArgument('json', InputArgument::REQUIRED, 'IDL JSON file'),
                 new InputArgument('output', InputArgument::REQUIRED, 'Output directory'),
-                new InputArgument('package', InputArgument::OPTIONAL, 'Package name')
+                new InputArgument('package', InputArgument::OPTIONAL, 'Package name'),
+                new InputArgument('enum_base', InputArgument::OPTIONAL, 'Optional base class from which Enums extend')
             ));
     }
 
@@ -34,9 +35,11 @@ class Make extends Command {
             throw new \Exception('Could not open and decode input JSON file!');
         }
 
+        $enumBase = $input->getArgument('enum_base');
+
         $version = false;
         
-        $parser = new \IdlParser($jsonData, $package, $outputDir, $version);
+        $parser = new \IdlParser($jsonData, $package, $outputDir, $enumBase, $version);
         $output->writeln(sprintf('Generating code for <info>%s</info> to <info>%s</info>', $json, $outputDir));
         $parser->parse();
         $output->writeln(sprintf('<info>Finished!</info> Generated %s classes.', $parser->getSaveCount()));
