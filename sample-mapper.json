@@ -1,4 +1,4 @@
 [
-    { "json": "report.json", "output": "code-sample", "package": "CreditKarma.Report" },
-    { "json": "report.json", "output": "code-sample-2", "package": "CreditKarma.ReportService" }
+    { "json": "base.idl.json", "output": "code-sample", "package": "CreditKarma.Service1" },
+    { "json": "base.idl.json", "output": "code-sample-2", "package": "CreditKarma.Service2" }
 ]

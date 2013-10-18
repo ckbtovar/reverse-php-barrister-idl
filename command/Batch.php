@@ -18,7 +18,8 @@ class Batch extends Command {
             ->setDescription('Batch process IDL JSON to PHP classes using namespaced mapping file')
             ->setDefinition(array(
                 new InputArgument('classmap', InputArgument::REQUIRED, 'JSON mapping file. Describes object mapping
-                between input IDL JSON files to namespace and output dir.')
+                between input IDL JSON files to namespace and output dir.'),
+                new InputArgument('enum_base', InputArgument::OPTIONAL, 'Optional base class from which Enums extend')
             ));
     }
 
@@ -30,6 +31,8 @@ class Batch extends Command {
         $validator = new \Json\Validator(__DIR__ . '/../idl-json-map.json');
         $validator->validate($batchJob);
 
+        $enumBase = $input->getArgument('enum_base');
+
         foreach($batchJob as $job) {
             $command = $this->getApplication()->find('make');
 
@@ -37,6 +40,7 @@ class Batch extends Command {
                 'command' => 'make',
                 'json'    => $job->json,
                 'output'  => $job->output,
+                'enum_base' => $enumBase,
                 'package' => $job->package
             );
 

@@ -35,7 +35,7 @@ class Make extends Command {
             throw new \Exception('Could not open and decode input JSON file!');
         }
 
-        $enumBase = $input->getArgument('enum_base');
+        $enumBase = '\\' . $input->getArgument('enum_base');
 
         $version = false;
         
