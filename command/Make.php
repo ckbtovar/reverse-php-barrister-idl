@@ -34,12 +34,6 @@ class Make extends Command {
             throw new \Exception('Could not open and decode input JSON file!');
         }
 
-        $version = false;
-        $composerJson = json_decode(file_get_contents('composer.json'));
-        if (isset($composerJson->version)) {
-            $version = $composerJson->version;
-        }
-
         $parser = new \IdlParser($jsonData, $package, $outputDir, $version);
         $output->writeln(sprintf('Generating code for <info>%s</info> to <info>%s</info>', $json, $outputDir));
         $parser->parse();
