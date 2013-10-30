@@ -116,10 +116,6 @@ class IdlParser {
                 if ($param->is_array) {
                     $codeStr .= 'array ';
                 }
-                elseif (!in_array($param->type, array('string', 'int', 'float', 'bool'))) {
-                    // type checking works for classes but not basic types :(
-                    $codeStr .= $param->type . ' ';
-                }
                 $codeStr .= "$" . $param->name . ", ";
             }
             // clear last param
