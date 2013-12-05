@@ -2,7 +2,7 @@
     "name": "ckbtovar/barrister-json-to-idl",
     "require": {
         "phpdocumentor/reflection-docblock": "2.0.*@dev",
-        "symfony/console": "2.3.*",
+        "symfony/console": "2.4.*",
         "hasbridge/json-schema-validator": "0.1.0"
     }
 }
